@@ -9,6 +9,14 @@ import { Task, TaskStatus } from './task.model';
 export class TasksService {
   private tasks: Task[] = [];
 
+  getAllTasks() {
+    return this.tasks;
+  }
+
+  getTaskByID(id: string) {
+    return this.tasks.find(task => task.id === id);
+  }
+
   createTask(createTaskDto: CreateTaskDto) {
     const task: Task = {
       id: uuid(),
@@ -19,9 +27,5 @@ export class TasksService {
     this.tasks.push(task);
 
     return task;
-  }
-
-  getAllTasks() {
-    return this.tasks;
   }
 }
