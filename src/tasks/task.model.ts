@@ -1,8 +1,3 @@
-export interface CreateTaskDto {
-  title: string;
-  description: string;
-}
-
 export interface Task {
   id: string;
   title: string;
