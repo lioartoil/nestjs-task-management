@@ -34,7 +34,5 @@ export class TasksController {
   @HttpCode(204)
   deleteTask(@Param('id') id: string) {
     this.tasksService.deleteTask(id);
-
-    return;
   }
 }
