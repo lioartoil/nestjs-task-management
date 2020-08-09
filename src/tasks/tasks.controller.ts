@@ -5,10 +5,12 @@ import {
   Get,
   HttpCode,
   Param,
+  Patch,
   Post,
 } from '@nestjs/common';
 
 import { CreateTaskDto } from './dto/create-task.dto';
+import { UpdateTaskStatusDto } from './dto/update-task-status.dto';
 import { TasksService } from './tasks.service';
 
 @Controller('tasks')
@@ -34,5 +36,10 @@ export class TasksController {
   @HttpCode(204)
   deleteTask(@Param('id') id: string) {
     this.tasksService.deleteTask(id);
+  }
+
+  @Patch(':id/:status')
+  updateTaskStatus(@Param() updateTaskStatusDto: UpdateTaskStatusDto) {
+    return this.tasksService.updateTaskStatus(updateTaskStatusDto);
   }
 }
