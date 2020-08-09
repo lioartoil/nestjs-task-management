@@ -1,3 +1,8 @@
+export interface CreateTaskDto {
+  title: string;
+  description: string;
+}
+
 export interface Task {
   id: string;
   title: string;
@@ -6,7 +11,7 @@ export interface Task {
 }
 
 export enum TaskStatus {
-  OPEN = 'oepn',
+  OPEN = 'open',
   IN_PROGRESS = 'in-progress',
   DONE = 'done',
 }
