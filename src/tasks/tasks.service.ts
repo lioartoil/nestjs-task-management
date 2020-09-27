@@ -16,16 +16,12 @@ export class TasksService {
   }
 
   getTasksWithFilters({ status, search }: GetTasksFilterDto) {
-    const tasks = this.getAllTasks().filter(
-      ({ title, description, status: _status }) => {
-        return (
-          (status ? _status === status : true) &&
-          (search
-            ? title.includes(search) || description.includes(search)
-            : true)
-        );
-      },
-    );
+    const tasks = this.getAllTasks().filter(({ title, description, status: _status }) => {
+      return (
+        (status ? _status === status : true) &&
+        (search ? title.includes(search) || description.includes(search) : true)
+      );
+    });
 
     return tasks;
   }
